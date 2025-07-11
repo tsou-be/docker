@@ -51,4 +51,8 @@ docker run -d \
 nano Dockerfile
 
 ```
-mais avant tout ça veiller faire le code suivant :
+mais avant tout ça veiller exécutez la commande suivante :
+``` sudo usermod -aG docker $USER ```
+et,
+``` newgrp docker ``` ou déconnecter et reconnecter
+
