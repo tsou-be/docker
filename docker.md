@@ -2,7 +2,7 @@
 
 ## Construire une image
 ```
-docker build -t mon-app .
+docker build -t mon-app . 
 
 ```
 ## Lancer un conteneur en mode détaché
