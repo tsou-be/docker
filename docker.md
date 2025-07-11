@@ -45,7 +45,7 @@ docker run -d \
   -e FLASK_ENV=production \
   mon-app-python
 ```
-  # dockerfile
+  # dockerfile avec essaye
   * créer dockerfile 
 ```
 nano Dockerfile
@@ -55,4 +55,11 @@ mais avant tout ça veiller exécutez la commande suivante :
 ``` sudo usermod -aG docker $USER ```
 et,
 ``` newgrp docker ``` ou déconnecter et reconnecter
+ * pour les tailles de l'image
+``` docker history monimage:v1.0 ```
+``` docker run -tid --name test monimage:v1.0 ```
+``` docker exec -ti test bash ```
+``` git ```
+``` exit ```
+``` docker rm -f test ``` 
 
