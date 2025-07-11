@@ -26,6 +26,7 @@ docker exec -it mon-conteneur sh
 docker volume ls 
 
 ```
+
 ```
 docker volume create mynginx 
 ```
@@ -56,10 +57,26 @@ mais avant tout ça veiller exécutez la commande suivante :
 et,
 ``` newgrp docker ``` ou déconnecter et reconnecter
  * pour les tailles de l'image
-``` docker history monimage:v1.0 ```
-``` docker run -tid --name test monimage:v1.0 ```
-``` docker exec -ti test bash ```
-``` git ```
-``` exit ```
-``` docker rm -f test ``` 
+```
+docker history monimage:v1.0
+ ```
+``` 
+docker run -tid --name test monimage:v1.0
+
+```
+``` 
+docker exec -ti test bash
+```
+``` 
+git
+
+```
+``` 
+exit
+
+```
+``` 
+docker rm -f test
+
+``` 
 
