@@ -52,6 +52,18 @@ docker run -d \
 nano Dockerfile
 
 ```
+
+metre cet code dans dockerfile:
+```
+
+FROM ubuntu:latest
+MAINTAINER sitraka
+RUN apt-get update \
+&& apt-get install -y vim git nano \
+&& apt-get clean \
+&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+```
 mais avant tout ça veiller exécutez la commande suivante :
 ``` sudo usermod -aG docker $USER ```
 et,
