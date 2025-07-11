@@ -1,7 +1,7 @@
 # Commandes Docker essentielles
 
 ## Construire une image
-```
+``` 
 docker build -t mon-app . 
 
 ```
