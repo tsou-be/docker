@@ -38,9 +38,11 @@ docker volume ls
 docker run -d --name mon-conteneur nginx 
 ```
 **exemple:
+```
 docker run -d \
   --name mon-app \
   -p 5000:5000 \
   -e FLASK_ENV=production \
   mon-app-python
+```
   
