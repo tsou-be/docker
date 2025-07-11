@@ -46,6 +46,9 @@ docker run -d \
   mon-app-python
 ```
   # dockerfile
-  * créer dockerfile *
-    ``` nano Dockerfile ```
+  * créer dockerfile 
+```
+nano Dockerfile
+
+```
 mais avant tout ça veiller faire le code suivant :
