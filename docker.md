@@ -45,4 +45,7 @@ docker run -d \
   -e FLASK_ENV=production \
   mon-app-python
 ```
-  
+  # dockerfile
+  * créer dockerfile *
+    ``` nano Dockerfile ```
+mais avant tout ça veiller faire le code suivant :
