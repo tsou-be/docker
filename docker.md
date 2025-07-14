@@ -1,26 +1,27 @@
-# Commandes Docker essentielles
+# apprendre docker 
+## Commandes Docker essentielles
 
-## Construire une image
+**Construire une image**
 ``` 
 docker build -t mon-app . 
 
 ```
-## Lancer un conteneur en mode détaché
+**Lancer un conteneur en mode détaché**
 ```
 docker run -d -p 3000:3000 --name mon-conteneur mon-app
 ```
 
-## Voir les logs
+**Voir les logs**
 ```
 docker logs mon-conteneur
 ```
 
-## Entrer dans un conteneur en cours d'exécution
+**Entrer dans un conteneur en cours d'exécution**
 ```
 docker exec -it mon-conteneur sh
 ```
 
-# docker volume
+## docker volume
 1.comment créer un volume
 ```
 docker volume ls 
@@ -38,7 +39,7 @@ docker volume ls
 ```
 docker run -d --name mon-conteneur nginx 
 ```
-**exemple:
+*exemple:*
 ```
 docker run -d \
   --name mon-app \
