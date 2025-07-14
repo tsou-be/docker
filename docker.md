@@ -93,15 +93,40 @@ docker rm -f test
 
 ``` 
 # Docker network 
-## Créer un réseau Docker
+## a. Créer un réseau Docker
 ```
 docker network create mon_reseau
 
 ```
-*vérification
+*vérification :
 ```
 docker network create mon_reseau
 ```
 **résultat**
 
-![Texte alternatif](<img width="806" height="190" alt="Capture d’écran du 2025-07-14 15-30-07" src="https://github.com/user-attachments/assets/1e89d6f5-3e3e-47d0-8c17-ef151ac1bd4d" />)
+<img width="806" height="190" alt="Capture d’écran du 2025-07-14 15-30-07" src="https://github.com/user-attachments/assets/1e89d6f5-3e3e-47d0-8c17-ef151ac1bd4d" />
+
+## b. Lancer un conteneur nginx dans le réseau 
+```
+docker run -d --name web --network mon_reseau nginx
+```
+*vérification :
+
+```
+docker run -d --name web --network mon_reseau nginx
+```
+**résultat**
+
+<img width="805" height="160" alt="Capture d’écran du 2025-07-14 15-47-43" src="https://github.com/user-attachments/assets/8521d5f1-252c-4aba-bb12-ed62559b9138" />
+
+## c.Lancer un conteneur client dans le même réseau
+```
+docker run -it --rm --name client --network mon_reseau alpine sh
+```
+**résultat**
+*puis dans le shell du conteneur client, tape :*
+```
+ping web
+
+```
+
