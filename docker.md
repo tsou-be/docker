@@ -103,4 +103,5 @@ docker network create mon_reseau
 docker network create mon_reseau
 ```
 **résultat**
-<img width="806" height="190" alt="Capture d’écran du 2025-07-14 15-30-07" src="https://github.com/user-attachments/assets/1e89d6f5-3e3e-47d0-8c17-ef151ac1bd4d" />
+
+![Texte alternatif](<img width="806" height="190" alt="Capture d’écran du 2025-07-14 15-30-07" src="https://github.com/user-attachments/assets/1e89d6f5-3e3e-47d0-8c17-ef151ac1bd4d" />)
