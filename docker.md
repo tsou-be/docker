@@ -69,7 +69,7 @@ mais avant tout ça veiller exécutez la commande suivante :
 ``` sudo usermod -aG docker $USER ```
 et,
 ``` newgrp docker ``` ou déconnecter et reconnecter
- * pour les tailles de l'image
+*pour les tailles de l'image*
 ```
 docker history monimage:v1.0
  ```
@@ -92,4 +92,16 @@ exit
 docker rm -f test
 
 ``` 
+# Docker network 
+## Créer un réseau Docker
+```
+docker network create mon_reseau
 
+```
+*vérification
+```
+docker network create mon_reseau
+```
+**résultat**
+  ![Texte alternatif](image.<img width="806" height="190" alt="Capture d’écran du 2025-07-14 15-30-07" src="https://github.com/user-attachments/assets/922ce1bf-ebbe-4031-bece-fde6f7d4ce19" />
+jpg)
