@@ -123,10 +123,68 @@ docker run -d --name web --network mon_reseau nginx
 ```
 docker run -it --rm --name client --network mon_reseau alpine sh
 ```
-**résultat**
+
 *puis dans le shell du conteneur client, tape :*
 ```
 ping web
 
 ```
+**resultat**
+<img width="769" height="142" alt="Capture d’écran du 2025-07-14 16-09-53" src="https://github.com/user-attachments/assets/620529ba-0ce8-4e92-a788-abcfc838e563" />
 
+## d. Nettoyage
+```
+docker stop web
+docker rm web
+docker network rm mon_reseau
+```
+## e. Résumé 
+```
+docker network create mon_reseau
+docker run -d --name web --network mon_reseau nginx
+docker run -it --rm --name client --network mon_reseau alpine sh
+```
+# Docker compose
+**créer un dossier**
+```
+mkdir exercice-compose
+cd exercice-compose
+```
+## 1. Créer le fichier docker-compose.yml
+*voici un exemple de son contenue*
+```
+version: '3.8'
+
+services:
+  web:
+    image: nginx:latest
+    container_name: web
+    networks:
+      - mon_reseau
+
+  client:
+    image: alpine:latest
+    container_name: client
+    command: sh -c "apk add --no-cache curl && sleep 60m"
+    networks:
+      - mon_reseau
+    tty: true
+    stdin_open: true
+
+networks:
+  mon_reseau:
+    driver: bridge
+
+```
+***lancer les services***
+```
+docker-compose up -d
+```
+**resultat**
+<img width="810" height="336" alt="Capture d’écran du 2025-07-14 16-34-04" src="https://github.com/user-attachments/assets/cbe7a7a1-f0e0-4dd5-ba64-89413f0ebd2b" />
+
+## 2. Arrêter et supprimer les conteneurs
+```
+docker-compose down
+
+```
