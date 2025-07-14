@@ -47,8 +47,8 @@ docker run -d \
   -e FLASK_ENV=production \
   mon-app-python
 ```
-  ## dockerfile avec essaye
-  * créer dockerfile 
+  ## dockerfile avec essaye
+*créer dockerfile* 
 ```
 nano Dockerfile
 
