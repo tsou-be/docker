@@ -161,3 +161,76 @@ docker volume rm mon_volume
 ```
 docker run -v mon_volume:/app/data myimage
 ```
+#  Docker Swarm - Résumé
+
+---
+
+##  Qu'est-ce que Docker Swarm ?
+
+Docker Swarm est une **solution d'orchestration** intégrée à Docker qui permet de gérer un **cluster de machines Docker** (appelées nœuds) comme un seul système virtuel.
+
+---
+
+##  Commandes de base
+
+
+# Initialiser un Swarm sur le manager
+```
+docker swarm init
+```
+
+# Obtenir le token pour ajouter un worker
+```
+docker swarm join-token worker
+```
+
+# Joindre un nœud worker au Swarm
+```
+docker swarm join --token <token> <ip_manager>:2377
+```
+
+# Lister les nœuds du cluster
+```
+docker node ls
+```
+
+# Déployer une stack (pile) depuis un fichier docker-compose.yml
+```
+docker stack deploy -c docker-compose.yml mystack
+```
+
+# Voir les services déployés
+```
+docker service ls
+```
+
+# Voir les tâches (conteneurs) d’un service
+```
+docker service ps mystack_nomduservice
+```
+
+# Supprimer la stack
+```
+docker stack rm mystack
+```
+
+# Forcer un manager à quitter le Swarm
+```
+docker swarm leave --force
+```
+
+***exemple***
+```
+créer un dossier .yml et voici le code que l on doit mettre :
+version: '3.8'
+services:
+  web:
+    image: nginx
+    ports:
+      - "8080:80"
+    deploy:
+      replicas: 3
+      placement:
+        constraints: [node.role == worker]
+
+```
