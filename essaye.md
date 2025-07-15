@@ -26,7 +26,7 @@
 ```  
   Lancer un nouveau conteneur à partir d’une image.
 
-```
+``` 
 - docker run -it <image> /bin/bash
 ```
   Lancer un conteneur en mode interactif avec un terminal.
