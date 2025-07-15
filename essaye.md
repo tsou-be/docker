@@ -54,37 +54,19 @@ docker volume ls
 ```
 docker run -d --name mon-conteneur nginx 
 ```
-*exemple:*
-```
-docker run -d \
-  --name mon-app \
-  -p 5000:5000 \
-  -e FLASK_ENV=production \
-  mon-app-python
-```
-  ## dockerfile avec essaye
+  ## dockerfile 
 *créer dockerfile* 
 ```
 nano Dockerfile
 
 ```
 
-metre cet code dans dockerfile:
-```
+metre un code dans dockerfile
 
-FROM ubuntu:latest
-MAINTAINER sitraka
-RUN apt-get update \
-&& apt-get install -y vim git nano \
-&& apt-get clean \
-&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
-```
-mais avant tout ça veiller exécutez la commande suivante :
+avant tout,
 ``` sudo usermod -aG docker $USER ```
-et,
 ``` newgrp docker ``` ou déconnecter et reconnecter
-*pour les tailles de l'image*
+*les tailles de l'image*
 ```
 docker history monimage:v1.0
  ```
@@ -95,46 +77,29 @@ docker run -tid --name test monimage:v1.0
 ``` 
 docker exec -ti test bash
 ```
-``` 
-git
 
-```
-``` 
-exit
-
-```
-``` 
-docker rm -f test
-
-``` 
 # Docker network 
-## a. Créer un réseau Docker
+## Créer réseau 
 ```
 docker network create mon_reseau
 
 ```
-*vérification :
+*pour verifié*
 ```
 docker network create mon_reseau
 ```
-**résultat**
 
-<img width="806" height="190" alt="Capture d’écran du 2025-07-14 15-30-07" src="https://github.com/user-attachments/assets/1e89d6f5-3e3e-47d0-8c17-ef151ac1bd4d" />
-
-## b. Lancer un conteneur nginx dans le réseau 
+## Lancer un conteneur nginx dans le réseau 
 ```
 docker run -d --name web --network mon_reseau nginx
 ```
-*vérification :
+*pour verifié:
 
 ```
 docker run -d --name web --network mon_reseau nginx
 ```
-**résultat**
 
-<img width="805" height="160" alt="Capture d’écran du 2025-07-14 15-47-43" src="https://github.com/user-attachments/assets/8521d5f1-252c-4aba-bb12-ed62559b9138" />
-
-## c.Lancer un conteneur client dans le même réseau
+## Lancer un conteneur client dans le même réseau
 ```
 docker run -it --rm --name client --network mon_reseau alpine sh
 ```
@@ -144,16 +109,14 @@ docker run -it --rm --name client --network mon_reseau alpine sh
 ping web
 
 ```
-**resultat**
-<img width="769" height="142" alt="Capture d’écran du 2025-07-14 16-09-53" src="https://github.com/user-attachments/assets/620529ba-0ce8-4e92-a788-abcfc838e563" />
 
-## d. Nettoyage
+##  Nettoyage
 ```
 docker stop web
 docker rm web
 docker network rm mon_reseau
 ```
-## e. Résumé 
+## Résumé 
 ```
 docker network create mon_reseau
 docker run -d --name web --network mon_reseau nginx
@@ -166,31 +129,7 @@ mkdir exercice-compose
 cd exercice-compose
 ```
 ## 1. Créer le fichier docker-compose.yml
-*voici un exemple de son contenue*
-```
-version: '3.8'
 
-services:
-  web:
-    image: nginx:latest
-    container_name: web
-    networks:
-      - mon_reseau
-
-  client:
-    image: alpine:latest
-    container_name: client
-    command: sh -c "apk add --no-cache curl && sleep 60m"
-    networks:
-      - mon_reseau
-    tty: true
-    stdin_open: true
-
-networks:
-  mon_reseau:
-    driver: bridge
-
-```
 ***lancer les services***
 ```
 docker-compose up -d
