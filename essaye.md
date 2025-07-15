@@ -6,7 +6,7 @@
 ```
 docker pull <image>
 ```
-   ** Télécharger une image depuis un registre (ex: Docker Hub) **
+Télécharger une image depuis un registre (ex: Docker Hub)
 ```
     docker images
 ```
@@ -16,12 +16,12 @@ docker pull <image>
 ```
     *** Supprimer une image Docker locale. ***
 
-**Construire une image**
+Construire une image
 ``` 
 docker build -t mon-app . 
 
 ```
-**Lancer un conteneur en mode détaché** 
+Lancer un conteneur en mode détaché
 ```
 docker run -d -p 3000:3000 --name mon-conteneur mon-app
 ```
