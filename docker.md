@@ -212,25 +212,25 @@ services:
       restart_policy:
         condition: on-failure
 ```
-# 1. Initialiser le Swarm 
+## 1. Initialiser le Swarm 
 docker swarm init
 
-# 2. Obtenir le token pour ajouter un worker
+## 2. Obtenir le token pour ajouter un worker
 docker swarm join-token worker
 
-# 3.  Rejoindre le Swarm comme worker
+## 3.  Rejoindre le Swarm comme worker
 docker swarm join --token <token> <ip_manager>:2377
 
-# 4. Déployer la stack 
+## 4. Déployer la stack 
 docker stack deploy -c docker-compose.yml mystack
 
-# 5. Vérifier les services Swarm
+## 5. Vérifier les services Swarm
 docker service ls
 
-# 6. Voir l'état des conteneurs du service
+## 6. Voir l'état des conteneurs du service
 docker service ps mystack_web
 
-# 7. Voir les nœuds du cluster
+## 7. Voir les nœuds du cluster
 docker node ls
 *** apres le déployement, accèder à : ***
 ```
