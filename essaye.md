@@ -1,5 +1,17 @@
 # leçons Docker
 ## Commandes De base
+# Commandes Docker de Base
+
+## 1. Gestion des images
+
+- `docker pull <image>`  
+  Télécharger une image depuis un registre (ex: Docker Hub).
+
+- `docker images`  
+  Lister les images Docker locales.
+
+- `docker rmi <image>`  
+  Supprimer une image Docker locale.
 
 ## 2. Gestion des conteneurs
 
