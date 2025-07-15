@@ -1,143 +1,61 @@
 # leçons Docker
 ## Commandes De base
 
-***1. Gestion des images***
+## 2. Gestion des conteneurs
 
-```
-docker pull <image>
-```
-Télécharger une image depuis un registre (ex: Docker Hub)
-```
-    docker images
-```
-    Lister les images Docker locales. 
-```
-    docker rmi <image>
-```
-   Supprimer une image Docker locale.
+- `docker run <image>`  
+  Lancer un nouveau conteneur à partir d’une image.
 
-Construire une image
-``` 
-docker build -t mon-app . 
+- `docker run -it <image> /bin/bash`  
+  Lancer un conteneur en mode interactif avec un terminal.
 
-```
-Lancer un conteneur en mode détaché
-```
-docker run -d -p 3000:3000 --name mon-conteneur mon-app
-```
+- `docker ps`  
+  Lister les conteneurs en cours d’exécution.
 
-**Voir les logs**
-```
-docker logs mon-conteneur
-```
+- `docker ps -a`  
+  Lister tous les conteneurs (actifs et arrêtés).
 
-**Entrer dans un conteneur en cours d'exécution**
-```
-docker exec -it mon-conteneur sh
-```
+- `docker stop <container_id>`  
+  Arrêter un conteneur en cours.
 
-## docker volume
-1.comment créer un volume
-```
-docker volume ls 
+- `docker start <container_id>`  
+  Démarrer un conteneur arrêté.
 
-```
+- `docker restart <container_id>`  
+  Redémarrer un conteneur.
 
-```
-docker volume create mynginx 
-```
+- `docker rm <container_id>`  
+  Supprimer un conteneur arrêté.
 
-```
-docker volume ls 
-```
-2.lancer de conteneur
-```
-docker run -d --name mon-conteneur nginx 
-```
-  ## dockerfile 
-*créer dockerfile* 
-```
-nano Dockerfile
+- `docker exec -it <container_id> bash`  
+  Exécuter une commande ou ouvrir un terminal dans un conteneur en cours.
 
-```
+## 3. Gestion des volumes
 
-metre un code dans dockerfile
+- `docker volume ls`  
+  Lister les volumes Docker.
 
-avant tout,
-``` sudo usermod -aG docker $USER ```
-``` newgrp docker ``` ou déconnecter et reconnecter
-*les tailles de l'image*
-```
-docker history monimage:v1.0
- ```
-``` 
-docker run -tid --name test monimage:v1.0
+- `docker volume create <nom>`  
+  Créer un volume Docker.
 
-```
-``` 
-docker exec -ti test bash
-```
+- `docker volume rm <nom>`  
+  Supprimer un volume Docker.
 
-# Docker network 
-## Créer réseau 
-```
-docker network create mon_reseau
+## 4. Gestion des réseaux
 
-```
-*pour verifié*
-```
-docker network create mon_reseau
-```
+- `docker network ls`  
+  Lister les réseaux Docker.
 
-## Lancer un conteneur nginx dans le réseau 
-```
-docker run -d --name web --network mon_reseau nginx
-```
-*pour verifié:
+- `docker network create <nom>`  
+  Créer un réseau Docker.
 
-```
-docker run -d --name web --network mon_reseau nginx
-```
+- `docker network rm <nom>`  
+  Supprimer un réseau Docker.
 
-## Lancer un conteneur client dans le même réseau
-```
-docker run -it --rm --name client --network mon_reseau alpine sh
-```
+## 5. Docker Compose (gestion multi-conteneurs)
 
-*puis dans le shell du conteneur client, tape :*
-```
-ping web
+- `docker-compose up`  
+  Lancer tous les services définis dans un fichier `docker-compose.yml`.
 
-```
-
-##  Nettoyage
-```
-docker stop web
-docker rm web
-docker network rm mon_reseau
-```
-## Résumé 
-```
-docker network create mon_reseau
-docker run -d --name web --network mon_reseau nginx
-docker run -it --rm --name client --network mon_reseau alpine sh
-```
-# Docker compose
-**créer un dossier**
-```
-mkdir exercice-compose
-cd exercice-compose
-```
-## 1. Créer le fichier docker-compose.yml
-
-***lancer les services***
-```
-docker-compose up -d
-```
-
-## 2. Arrêter et supprimer les conteneurs
-```
-docker-compose down
-
-```
-
+- `docker-compose down`  
+  Arrêter et supprimer les conteneurs, réseaux créés par Docker Compose.
