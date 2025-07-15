@@ -8,7 +8,7 @@ docker build -t mon-app .
 ```
 **Lancer un conteneur en mode détaché** 
 ```
-docker run -d -p 3000:3000 --name mon-conteneur mon-app
+docker run -d -p 3000:3000 --name mon-conteneur mon-app 
 ```
 
 **Voir les logs**
