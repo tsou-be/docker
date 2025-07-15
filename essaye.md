@@ -111,3 +111,53 @@ docker network rm <nom>
 - docker-compose down
 ``` 
   Arrêter et supprimer les conteneurs, réseaux créés par Docker Compose.
+
+
+  # Résumé des composants de Docker
+
+---
+
+##  1. Dockerfile
+
+**Définition :**  
+Un Dockerfile est un fichier texte contenant des instructions permettant de construire une **image Docker personnalisée**.
+
+**Exemple :**
+```
+Dockerfile
+FROM python:3.10-slim
+COPY app.py /app/
+WORKDIR /app
+RUN pip install flask
+CMD ["python", "app.py"]
+```
+
+
+# Docker Volume & Network - Résumé
+
+
+##  Docker Volume
+
+**Définition :**  
+Un volume Docker est un mécanisme de stockage persistant utilisé pour conserver les données même après la suppression d’un conteneur.
+
+**Commandes utiles :**
+
+###Créer un volume
+```
+docker volume create mon_volume
+```
+
+# Lister les volumes
+```
+docker volume ls
+```
+# Supprimer un volume
+```
+docker volume rm mon_volume
+```
+
+# Utiliser un volume dans un conteneur
+```
+docker run -v mon_volume:/app/data myimage
+```
